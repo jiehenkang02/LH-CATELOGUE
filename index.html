@@ -6,7 +6,7 @@
     <title>LEONG HENG Wholesale Ikan Masin</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* This style is added to make the images look good and uniform */
+        /* Styles for the Cart and Quantity elements */
         .product-card img {
             width: 100%; 
             height: 250px; 
@@ -14,158 +14,283 @@
             border-radius: 6px;
             margin-bottom: 10px;
         }
+        .cart-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px 20px;
+            background-color: #0b5563;
+            z-index: 1000;
+        }
+        #view-cart-btn {
+            background-color: #4CAF50; /* Green for WhatsApp */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .quantity-controls input[type="number"] {
+            width: 50px;
+            text-align: center;
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .add-to-cart-btn {
+            background-color: #3f60a9; /* Blue for Add to Cart */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #2e477a;
+        }
+        .price-text {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        .wholesale-price {
+            font-weight: bold;
+            color: #c9184a; 
+        }
+        .single-price {
+            color: #444; 
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
-    <header>
+    
+    <div class="cart-header">
+        <button id="view-cart-btn">View Cart & Order (0)</button>
+    </div>
+
+    <header style="margin-top: 60px;">
         <h1>🐟 LEONG HENG Wholesale Ikan Masin Catalogue</h1>
-        <p>This catalogue displays our wholesale pricing **Per KG** for full carton/box orders. Click "Order Now" to contact us!</p>
+        <p>Tiered Pricing: **Wholesale Price** applies to 2+ cartons. **Single Box Price** applies to 1 carton orders. Add all required items to your cart, then click the **View Cart & Order** button above!</p>
     </header>
 
     <main id="product-list">
         
-        <div class="product-card" data-product-name="TAMBAN" data-price="7.8" data-size="1BOX 13KG">
+        <div class="product-card" data-product-name="TAMBAN" data-wholesale-price="7.8" data-single-box-price="8.8" data-size="1BOX 13KG">
             <img src="tamban.jpg" alt="Image of TAMBAN Ikan Masin (Placeholder)">
             <h2>TAMBAN</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 13KG** [cite: 2]</p>
-            [cite_start]<p class="price">Price: **RM7.80/KG** [cite: 2]</p>
-            <button class="order-btn" data-product="TAMBAN">Order Now</button>
+            <p class="size">Packing Size: **1BOX 13KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM7.80/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM8.80/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="TENGGIRI S/M/L" data-price="20" data-size="1BOX 20KG">
+        <div class="product-card" data-product-name="TENGGIRI S/M/L" data-wholesale-price="20.0" data-single-box-price="21.0" data-size="1BOX 20KG">
             <img src="ikan-tenggiri.jpeg" alt="Image of TENGGIRI S/M/L">
             <h2>TENGGIRI S/M/L</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 20KG** [cite: 2]</p>
-            [cite_start]<p class="price">Price: **RM20.00/KG** [cite: 2]</p>
-            <button class="order-btn" data-product="TENGGIRI S/M/L">Order Now</button>
+            <p class="size">Packing Size: **1BOX 20KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM20.00/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM21.00/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="GERAMA PISANG" data-price="7.5" data-size="1BOX 13KG">
+        <div class="product-card" data-product-name="GERAMA PISANG" data-wholesale-price="7.5" data-single-box-price="8.5" data-size="1BOX 13KG">
             <img src="gerama-pisang.jpeg" alt="Image of GERAMA PISANG">
             <h2>GERAMA PISANG</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 13KG** [cite: 2]</p>
-            [cite_start]<p class="price">Price: **RM7.50/KG** [cite: 2]</p>
-            <button class="order-btn" data-product="GERAMA PISANG">Order Now</button>
+            <p class="size">Packing Size: **1BOX 13KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM7.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM8.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="GERAMA MASAM" data-price="8.8" data-size="1BOX 13KG">
+        <div class="product-card" data-product-name="GERAMA MASAM" data-wholesale-price="8.8" data-single-box-price="9.8" data-size="1BOX 13KG">
             <img src="gerama-masam.jpeg" alt="Image of GERAMA MASAM">
             <h2>GERAMA MASAM</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 13KG** [cite: 2]</p>
-            [cite_start]<p class="price">Price: **RM8.80/KG** [cite: 2]</p>
-            <button class="order-btn" data-product="GERAMA MASAM">Order Now</button>
+            <p class="size">Packing Size: **1BOX 13KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM8.80/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM9.80/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="GERAMA BELAH" data-price="7.3" data-size="1BOX 15KG">
+        <div class="product-card" data-product-name="GERAMA BELAH" data-wholesale-price="7.3" data-single-box-price="8.3" data-size="1BOX 15KG">
             <img src="gerama-belah.jpg" alt="Image of GERAMA BELAH (Placeholder)">
             <h2>GERAMA BELAH</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 15KG** [cite: 2]</p>
-            [cite_start]<p class="price">Price: **RM7.30/KG** [cite: 2]</p>
-            <button class="order-btn" data-product="GERAMA BELAH">Order Now</button>
+            <p class="size">Packing Size: **1BOX 15KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM7.30/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM8.30/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="BELANAK" data-price="8.5" data-size="1BOX 13KG">
+        <div class="product-card" data-product-name="BELANAK" data-wholesale-price="8.5" data-single-box-price="9.5" data-size="1BOX 13KG">
             <img src="belanak.jpg" alt="Image of BELANAK (Placeholder)">
             <h2>BELANAK</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 13KG** [cite: 3]</p>
-            [cite_start]<p class="price">Price: **RM8.50/KG** [cite: 3]</p>
-            <button class="order-btn" data-product="BELANAK">Order Now</button>
+            <p class="size">Packing Size: **1BOX 13KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM8.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM9.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="GERAMA CABUT KEPALA" data-price="8" data-size="1BOX 12KG">
+        <div class="product-card" data-product-name="GERAMA CABUT KEPALA" data-wholesale-price="8.0" data-single-box-price="9.0" data-size="1BOX 12KG">
             <img src="gerama-cabut.jpg" alt="Image of GERAMA CABUT KEPALA (Placeholder)">
             <h2>GERAMA CABUT KEPALA</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 12KG** [cite: 3]</p>
-            [cite_start]<p class="price">Price: **RM8.00/KG** [cite: 3]</p>
-            <button class="order-btn" data-product="GERAMA CABUT KEPALA">Order Now</button>
+            <p class="size">Packing Size: **1BOX 12KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM8.00/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM9.00/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="TULANG MERAH" data-price="8.5" data-size="1BOX 15KG">
+        <div class="product-card" data-product-name="TULANG MERAH" data-wholesale-price="8.5" data-single-box-price="9.5" data-size="1BOX 15KG">
             <img src="tulang-merah.jpeg" alt="Image of TULANG MERAH">
             <h2>TULANG MERAH</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 15KG** [cite: 3]</p>
-            [cite_start]<p class="price">Price: **RM8.50/KG** [cite: 3]</p>
-            <button class="order-btn" data-product="TULANG MERAH">Order Now</button>
+            <p class="size">Packing Size: **1BOX 15KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM8.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM9.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="TALANG PADI" data-price="7.5" data-size="1BOX 15KG">
+        <div class="product-card" data-product-name="TALANG PADI" data-wholesale-price="7.5" data-single-box-price="8.5" data-size="1BOX 15KG">
             <img src="talang-padi.jpeg" alt="Image of TALANG PADI">
             <h2>TALANG PADI</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 15KG** [cite: 3]</p>
-            [cite_start]<p class="price">Price: **RM7.50/KG** [cite: 3]</p>
-            <button class="order-btn" data-product="TALANG PADI">Order Now</button>
+            <p class="size">Packing Size: **1BOX 15KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM7.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM8.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="DURI" data-price="9" data-size="1BOX 15KG">
+        <div class="product-card" data-product-name="DURI" data-wholesale-price="9.0" data-single-box-price="10.0" data-size="1BOX 15KG">
             <img src="ikan-duri.jpeg" alt="Image of DURI">
             <h2>DURI</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 15KG** [cite: 3]</p>
-            [cite_start]<p class="price">Price: **RM9.00/KG** [cite: 3]</p>
-            <button class="order-btn" data-product="DURI">Order Now</button>
+            <p class="size">Packing Size: **1BOX 15KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM9.00/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM10.00/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="TALANG M S/M/L" data-price="12.5" data-size="1BOX 25KG">
+        <div class="product-card" data-product-name="TALANG M S/M/L" data-wholesale-price="12.5" data-single-box-price="13.5" data-size="1BOX 25KG">
             <img src="ikan-talang.jpeg" alt="Image of TALANG M S/M/L">
             <h2>TALANG M S/M/L</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 25KG** [cite: 4]</p>
-            [cite_start]<p class="price">Price: **RM12.50/KG** [cite: 4]</p>
-            <button class="order-btn" data-product="TALANG M S/M/L">Order Now</button>
+            <p class="size">Packing Size: **1BOX 25KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM12.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM13.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="IKAN YU" data-price="24" data-size="1BOX 18KG">
+        <div class="product-card" data-product-name="IKAN YU" data-wholesale-price="24.0" data-single-box-price="25.0" data-size="1BOX 18KG">
             <img src="ikan-yu.jpeg" alt="Image of IKAN YU">
             <h2>IKAN YU</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 18KG** [cite: 4]</p>
-            [cite_start]<p class="price">Price: **RM24.00/KG** [cite: 4]</p>
-            <button class="order-btn" data-product="IKAN YU">Order Now</button>
+            <p class="size">Packing Size: **1BOX 18KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM24.00/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM25.00/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="IKAN KURAU" data-price="28" data-size="1BOX 25KG">
+        <div class="product-card" data-product-name="IKAN KURAU" data-wholesale-price="28.0" data-single-box-price="29.0" data-size="1BOX 25KG">
             <img src="ikan-kurau.jpeg" alt="Image of IKAN KURAU">
             <h2>IKAN KURAU</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 25KG** [cite: 4]</p>
-            [cite_start]<p class="price">Price: **RM28.00/KG** [cite: 4]</p>
-            <button class="order-btn" data-product="IKAN KURAU">Order Now</button>
+            <p class="size">Packing Size: **1BOX 25KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM28.00/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM29.00/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="KURAU ISI" data-price="43" data-size="1BOX 15KG">
+        <div class="product-card" data-product-name="KURAU ISI" data-wholesale-price="43.0" data-single-box-price="44.0" data-size="1BOX 15KG">
             <img src="kurau-isi.jpeg" alt="Image of KURAU ISI">
             <h2>KURAU ISI</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 15KG** [cite: 4]</p>
-            [cite_start]<p class="price">Price: **RM43.00/KG** [cite: 4]</p>
-            <button class="order-btn" data-product="KURAU ISI">Order Now</button>
+            <p class="size">Packing Size: **1BOX 15KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM43.00/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM44.00/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
-        <div class="product-card" data-product-name="KEMBUNG" data-price="7.5" data-size="1BOX 13KG">
+        <div class="product-card" data-product-name="KEMBUNG" data-wholesale-price="7.5" data-single-box-price="8.5" data-size="1BOX 13KG">
             <img src="kembung.jpeg" alt="Image of KEMBUNG">
             <h2>KEMBUNG</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 13KG** [cite: 4]</p>
-            [cite_start]<p class="price">Price: **RM7.50/KG** [cite: 4]</p>
-            <button class="order-btn" data-product="KEMBUNG">Order Now</button>
+            <p class="size">Packing Size: **1BOX 13KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM7.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM8.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
         
-        <div class="product-card" data-product-name="TULANG TALANG" data-price="6.5" data-size="1BOX 15KG">
+        <div class="product-card" data-product-name="TULANG TALANG" data-wholesale-price="6.5" data-single-box-price="7.5" data-size="1BOX 15KG">
             <img src="tulang-talang.jpeg" alt="Image of TULANG TALANG">
             <h2>TULANG TALANG</h2>
             <p class="description">Wholesale Carton/Box Order.</p>
-            [cite_start]<p class="size">Packing Size: **1BOX 15KG** [cite: 6]</p>
-            [cite_start]<p class="price">Price: **RM6.50/KG** [cite: 7]</p>
-            <button class="order-btn" data-product="TULANG TALANG">Order Now</button>
+            <p class="size">Packing Size: **1BOX 15KG**</p>
+            <p class="price-text"><span class="wholesale-price">RM6.50/KG</span> (2+ Box)</p>
+            <p class="price-text"><span class="single-price">RM7.50/KG</span> (1 Box)</p>
+            <div class="quantity-controls">
+                <input type="number" value="1" min="1" class="item-quantity">
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
 
     </main>
